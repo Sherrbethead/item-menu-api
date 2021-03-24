@@ -9,7 +9,7 @@ help:
 	@echo
 	@echo "  build              сбилдить приложение"
 	@echo "  run                запустить приложение"
-	@echo "  tests               запуск тестов (pytest)"
+	@echo "  tests              запуск тестов (pytest)"
 	@echo "  migrations         сделать миграции"
 	@echo "  migrate            применить миграции"
 	@echo "  dump               снять дамп с БД"
