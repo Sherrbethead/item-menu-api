@@ -1,0 +1,45 @@
+dynaconf_merge: true
+default:
+  PORT: 8000
+  VERSION_PATH: VERSION
+  POSTGRES:
+    host: localhost
+    port: 5432
+    user: postgres
+    password: postgres
+    database: item_menu
+  SERVICES:
+    auth:
+      enabled: false
+      host: localhost
+      port: 5000
+      endpoint: graphql
+  LOGGING:
+    version: 1
+    disable_existing_loggers: false
+    formatters:
+      default:
+        format: "%(levelname)-8s# %(filename)s[LINE:%(lineno)d] [%(asctime)s.%(msecs)d]: [item-menu] %(message)s"
+    handlers:
+      console:
+        level: DEBUG
+        class: logging.StreamHandler
+        formatter: default
+        stream: ext://sys.stdout
+      error:
+        level: ERROR
+        class: logging.StreamHandler
+        formatter: default
+        stream: ext://sys.stderr
+    loggers:
+      default:
+        level: DEBUG
+        handlers: [ console, error ]
+    root:
+      level: DEBUG
+      handlers: [ console, error ]
+
+local:
+  SERVICES:
+    auth:
+      enabled: false
